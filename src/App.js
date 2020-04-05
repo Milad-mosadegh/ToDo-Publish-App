@@ -4,9 +4,10 @@ import ListItems from './components/ListItems';
 import './App.css'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faTrash } from '@fortawesome/free-solid-svg-icons'
+import { faHome } from '@fortawesome/free-solid-svg-icons'
 import 'bootstrap/dist/css/bootstrap.min.css'
 
-library.add(faTrash)
+library.add(faTrash, faHome)
 
 class App extends Component {
   constructor(props) {
@@ -28,8 +29,10 @@ class App extends Component {
       }
     })
   }
+
   addItem = (e) => {
     e.preventDefault();
+
     const newItem = this.state.currentItem;
     console.log(newItem);
     if (newItem !== "") {
@@ -58,12 +61,15 @@ class App extends Component {
     })
     this.setState({ item: items })
   }
+
+
   render() {
     return (
-      <div className="App shadow">
-        <header className="shadow-lg">
+      <div className="App shadow ">
+        <h4 className="text-center p-2">ToDo List</h4>
+        <header className="border-bottom">
           <form id="to-do-form" onSubmit={this.addItem} className="d-flex p-3 justify-content-center">
-            <input type='text' className="form-control w-50 " placeholder="Enter Text" value={this.state.currentItem.text} onChange={this.handleInput} />
+            <input name="input" type='text' className="form-control w-50 " placeholder="Enter Text" value={this.state.currentItem.text} onChange={this.handleInput} />
             <button type="submit" className="btn btn-danger ml-1">Add</button>
           </form>
         </header>

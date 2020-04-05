@@ -25,6 +25,11 @@
     font-size: 15px;
     color: red;
 }
+.faicons2{
+    margin: 0 5px;
+    font-size: 15px;
+    color: green;
+}
 
 .list p input{
     background: transparent;
